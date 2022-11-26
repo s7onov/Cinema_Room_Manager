@@ -84,6 +84,10 @@ class CinemaRoom(private val rows: Int = 7, private val cols: Int = 8) {
     }
 
     fun buyATicketLoop() {
+        if (seats.contentDeepToString().count { it == VACANT } == 0) {
+            println("\nSorry, there are no vacant seats.")
+            return
+        }
         do {
             val ticketPrice = buyTicket()
         } while (ticketPrice == 0)
